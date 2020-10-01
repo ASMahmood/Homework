@@ -52,7 +52,30 @@ console.log(crazyDiff(21))
 Write a function "boundary" which accept an integer N and returns true if N is within 20 and 100 (included) or equal to 400.
 */
 
-/* WRITE YOUR CODE HERE */
+const boundary = function(N) {
+    if ((N >= 20) && (N <= 100)) {
+        return true;
+    } else if (N === 400) {
+        return true;
+    } else {
+        return false
+    }
+}
+
+/*
+I tried to do this, but wasnt sure how to properly do the case with having to write a case for every single
+number between 20 and 100
+
+switch (N) {
+    case (20 <= N <= 100):
+        return true;
+    case 400:
+        return true;
+    default:
+        return "N is neither 400 nor within the range of 20-100";
+}
+*/
+console.log(boundary(10))
 
 /* EXERCISE 5
 Write a function "strivify" which accepts a string S. Add to S "Strive" in front of a given string, if the given string begins with "Strive" then return the original string.

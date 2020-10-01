@@ -38,6 +38,16 @@ the specified
 number is greater than 19.
 */
 
+const crazyDiff = function(x) {
+    if (x > 19) {
+        return (3 * (x - 19));
+    } else {
+        return (19 - x)
+    }
+}
+
+console.log(crazyDiff(21))
+
 /* EXERCISE 4
 Write a function "boundary" which accept an integer N and returns true if N is within 20 and 100 (included) or equal to 400.
 */

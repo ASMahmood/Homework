@@ -98,7 +98,15 @@ Write a function "check3and7" which accepts a positive number and check if it is
 HINT: Module Operator
 */
 
-/* WRITE YOUR CODE HERE */
+const check3and7 = function(P) {
+    if ((P>=0) && ((Number.isInteger(P / 3))) || (Number.isInteger(P / 7))) {
+        return "P is positive and a multiple of 3 or 7";
+    } else {
+        return "P is neither positive nor a multiple of 3 or 7"
+    }
+}
+
+console.log(check3and7(27))
 
 /* EXERCISE 7
 Write a function "reverseString" to reverse programmatically a given string (es.: Strive => evirtS).

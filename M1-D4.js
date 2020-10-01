@@ -20,6 +20,16 @@ console.log(`The area is ${area(4, 10)} cm²`)
 Write a function "crazySum" which receives two given integers. If the two values are same, then returns triple their sum.
 */
 
+const crazySum = function(x, y) {
+    if(x === y){
+        return (3*(x+y));
+    } else{
+        return "These values are not the same."
+    }
+}
+
+console.log(crazySum(4, 5))
+
 /* EXERCISE 3
 Write a function "crazyDiff" that computes the 
 absolute difference between a given number and 19. 

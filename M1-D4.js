@@ -134,10 +134,10 @@ Write a function "cutString" to create a new string without the first and last c
 */
 
 const cutString = function (S) {
-  return S.split("").shift() + S.split("").pop();
+  return S.substring(1, S.length - 1);
 };
 
-console.log(cutString("Hello"));
+console.log(cutString("Hello world"));
 
 /* EXERCISE 10
 Write a function "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10

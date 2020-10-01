@@ -84,14 +84,14 @@ Write a function "strivify" which accepts a string S. Add to S "Strive" in front
 
 const strivify = function(S) {
     const st = "Strive ";
-    if (S.includes("Strive", 0)) {
+    if ((S.includes("Strive", 0)) && (!(S.includes("Strive", 6)))) {
         return S
     } else {
         return (st + S)
     }
 }
 
-console.log(strivify("Hey there gang"))
+console.log(strivify("Hey there Strivers"))
 
 /* EXERCISE 6
 Write a function "check3and7" which accepts a positive number and check if it is a multiple of 3 or a multiple of 7.

@@ -188,7 +188,32 @@ console.log("---------------------");
 /* Ex.7
    Write the function WhatDayIsIt that should return the day of the week
 */
+console.log("Ex.7");
 
+const WhatDayIsIt = function (d) {
+  // d = Date.prototype.getDate;
+  switch (d) {
+    case 0:
+      return "Today is Monday";
+    case 1:
+      return "Today is Tuesday";
+    case 2:
+      return "Today is Wednesday";
+    case 3:
+      return "Today is Thurday";
+    case 4:
+      return "Today is Friday";
+    case 5:
+      return "Today is Saturday";
+    case 6:
+      return "Today is Sunday";
+    default:
+      break;
+  }
+};
+console.log(WhatDayIsIt(1));
+
+console.log("---------------------");
 /* Ex.8
     Write the function RollTheDices that receives a numeric input and returns an object that contains both the sum of the value of the dices and the dices itself
     This function should use the Dice function defined in Ex1

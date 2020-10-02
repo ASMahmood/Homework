@@ -222,7 +222,25 @@ console.log("---------------------");
         values: [ 3, 3, 4]
     }
 */
+console.log("Ex.8");
 
+const RollTheDice = function (r) {
+  let die = [];
+  for (let i = 0; i < r; i++) {
+    addDie = Dice(1);
+    die.push(addDie);
+  }
+  const diceSum = (die) => die.reduce((a, b) => a + b, 0);
+  let result = {
+    Dice: `You rolled ${die}`,
+    Sum: `The sum of the dice is ${diceSum}`,
+  };
+  return result;
+};
+
+console.log(RollTheDice(3));
+
+console.log("---------------------");
 /* Ex.9
    Write the function HowManyDays that receives a Date and return the number of days that has passed since that day.
 */

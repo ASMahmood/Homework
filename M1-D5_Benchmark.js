@@ -132,20 +132,42 @@ console.log("Ex.4");
 const DeleteOne = function (s, b) {
   if (typeof s !== String || typeof b !== Boolean) {
     return "Either parameter s' is not a string or parameter b is not a boolean";
-  } else if (b === true && s === String) {
-    return s;
+  } else if (b === true) {
+    return s.slice(1);
   } else {
-    return s;
+    return s.slice(0, -1);
   }
 };
 console.log(DeleteOne("Delete", true));
+console.log(typeof "Delete", typeof true);
 
 console.log("---------------------");
 /* Ex.5
    Write the function OnlyLetters that receives a string, removes all the numbers and returns it.
    Ex.: OnlyLetters("I love 123 whatever")  => returns "I love whatever"
 */
+console.log("Ex.5");
+/* Attempt before google
+const OnlyLetters = function (s) {
+  let sArray = s.split();
+  for (let i = 0; i <= sArray.length; i++) {
+    if (typeof sArray[i] === Number) {
+      delete sArray[i];
+    } else {
+      return sArray[i];
+    }
+  }
+  return sArray;
+};
+console.log(OnlyLetters("My OnlyLetters account costs £1000"));
+*/
 
+const OnlyLetters = function (s) {
+  return s.replace(/[0-9]/g, "");
+};
+console.log(OnlyLetters("My OnlyLetters account costs £1000"));
+
+console.log("---------------------");
 /* Ex.6 
    Write the function IsThisAnEmail that receives a string and returns true if the string is a valid email.
 */

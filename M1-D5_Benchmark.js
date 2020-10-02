@@ -92,12 +92,26 @@ console.log("Ex.1");
 const Dice = function (n) {
   return (n = Math.floor(Math.random() * 6 + 1));
 };
-console.log(Dice(1));
+console.log("A random integer between 1 and 6 is ", Dice(1));
+
 console.log("---------------------");
 /* Ex.2 
     Write the function WhoIsBigger that receives 2 numbers and returns the bigger of the 2
 */
+console.log("Ex.2");
 
+const WhoIsBigger = function (x, y) {
+  if (x === y) {
+    return "These values are the same";
+  } else if (x > y) {
+    return x + " is the bigger number";
+  } else {
+    return y + " is the bigger number";
+  }
+};
+console.log(WhoIsBigger(7, 7));
+
+console.log("---------------------");
 /* Ex.3
     Write the function SplitMe that receives a String and returns an array with every word in that string
     Ex. SplitMe("I love coding") => returns [ "I","Love","Coding"]

@@ -127,7 +127,20 @@ console.log("---------------------");
 /* Ex.4
     Write the function DeleteOne that receives a string and a boolean. If the boolean is true, should return the string without the first letter, otherwise should remove the last one
 */
+console.log("Ex.4");
 
+const DeleteOne = function (s, b) {
+  if (typeof s !== String || typeof b !== Boolean) {
+    return "Either parameter s' is not a string or parameter b is not a boolean";
+  } else if (b === true && s === String) {
+    return s;
+  } else {
+    return s;
+  }
+};
+console.log(DeleteOne("Delete", true));
+
+console.log("---------------------");
 /* Ex.5
    Write the function OnlyLetters that receives a string, removes all the numbers and returns it.
    Ex.: OnlyLetters("I love 123 whatever")  => returns "I love whatever"

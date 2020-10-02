@@ -190,8 +190,10 @@ console.log("---------------------");
 */
 console.log("Ex.7");
 
+let date = new Date();
+let d = date.getDay();
+
 const WhatDayIsIt = function (d) {
-  // d = Date.prototype.getDate;
   switch (d) {
     case 0:
       return "Today is Monday";
@@ -244,7 +246,17 @@ console.log("---------------------");
 /* Ex.9
    Write the function HowManyDays that receives a Date and return the number of days that has passed since that day.
 */
+console.log("Ex.9");
 
+const HowManyDays = function (d) {
+  return;
+};
+let date2 = new Date();
+let dd = date.getDay();
+
+console.log(dd);
+
+console.log("---------------------");
 /* Ex.10
    Write the function IsTodayMyBDay that returns true if it's your birthday, false otherwise
 */

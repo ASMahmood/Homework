@@ -10,11 +10,12 @@
 */
 
 //JS Basics
-
+console.log("---------------------");
+console.log("JS BASICS");
+console.log("---------------------");
 /* Ex.A
    Create a variable test that contains a string
 */
-console.log("---------------------");
 console.log("Ex.A");
 
 const exA = "This is a test string";
@@ -79,11 +80,20 @@ Me.Skills.pop();
 console.log(Me);
 
 console.log("---------------------");
+
 // JS Functions
+console.log("JS FUNCTIONS");
+console.log("---------------------");
 /* Ex.1
     Write the function Dice that randomize an integer number between 1 and 6
 */
+console.log("Ex.1");
 
+const Dice = function (n) {
+  return (n = Math.floor(Math.random() * 6 + 1));
+};
+console.log(Dice(1));
+console.log("---------------------");
 /* Ex.2 
     Write the function WhoIsBigger that receives 2 numbers and returns the bigger of the 2
 */

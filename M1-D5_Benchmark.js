@@ -227,14 +227,15 @@ console.log("Ex.8");
 
 const RollTheDice = function (r) {
   let die = [];
+  let total = 0;
   for (let i = 0; i < r; i++) {
     addDie = Dice(1);
     die.push(addDie);
+    total = die;
   }
-  const diceSum = (die) => die.reduce((a, b) => a + b, 0);
   let result = {
     Dice: `You rolled ${die}`,
-    Sum: `The sum of the dice is ${diceSum}`,
+    Sum: `The sum of the dice is ${total}`,
   };
   return result;
 };
@@ -248,86 +249,37 @@ console.log("---------------------");
 console.log("Ex.9");
 
 const HowManyDays = function (d) {
-  return;
+  let today = new Date();
+  let day = today.getMilliseconds();
+  const date2 = new Date("02/10/2020");
+  let day2 = date2.getMilliseconds();
+  const diffDays = day - date2;
 };
-let date2 = new Date();
-let dd = date.getDay();
-
-console.log(dd);
+console.log(HowManyDays(Date));
 
 console.log("---------------------");
 /* Ex.10
    Write the function IsTodayMyBDay that returns true if it's your birthday, false otherwise
 */
+console.log("Ex.10");
 
+const IsTodayMyBDay = function (d) {
+  let today = new Date();
+  let day = today.getDate();
+  let month = today.getMonth();
+  let year = today.getFullYear();
+  let todayDate = day + "/" + (month + 1) + "/" + year;
+  console.log(todayDate);
+  if (todayDate === "2/10/2020") {
+    return true;
+  } else {
+    return false;
+  }
+};
+console.log(IsTodayMyBDay(1));
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of the file
 
-/* Ex.11
-   Write the function DeleteProp that receives an object and a string, and returns the object after deleting the property with that given name
-*/
-
-/* Ex.12 
-    Write the function OlderMovie that finds the older movie in the array
-*/
-
-/* Ex.13
-    Write the function CountMovies that returns the number of movies into the array
-*/
-
-/* Ex.14
-    Write the function OnlyTitles that creates an array with only the titles of the movies
-*/
-
-/* Ex.15
-   Write the function OnlyThisMillennium that returns only the movies produced in this millennium
-*/
-
-/* Ex.16 
-    Write the function GetMovieById that receives an ID and returns the movie with the given ID
-*/
-
-/* Ex.17
-    Write the function SumYears that returns the sum of the years the movie has been produced
-*/
-
-/* Ex.18
-    Write the function SearchMovie that receives a string and returns all the movies with that string in the title
-*/
-
-/* Ex.19
-    Write the function SearchAndDivide that receives a string and returns an object with an array "match" with all the movies that contains the title and another array "nonMatch" with the other movies
-*/
-
-/* Ex.20
-   Write the function DeleteX that receives a number and returns an array without the element in that position
-*/
-
-// JS Advanced
-
-/* Ex.21
-  Create a function HalfTree that recives the height creates an "*" half tree with that height
-  Example:
-  HalfTree(3)
-  *
-  **
-  ***
-*/
-
-/* Ex.22 
-  Create a function Tree that receives the height and creates an "*" tree with that height
-  Example: 
-  Tree(3)
-    *  
-   *** 
-  *****
-*/
-
-/* Ex.23
-  Create a function IsItPrime that receives a number and return true if the number is a prime number
-*/
-
-/* Movies array is an example array, used for the exs. Don't change it :)  */
 const movies = [
   {
     Title: "The Lord of the Rings: The Fellowship of the Ring",
@@ -442,3 +394,145 @@ const movies = [
       "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
   },
 ];
+
+/* Ex.11
+   Write the function DeleteProp that receives an object and a string, and returns the object after deleting the property with that given name
+*/
+
+/* Ex.12 
+    Write the function OlderMovie that finds the older movie in the array
+*/
+console.log("Ex.12");
+
+const OlderMovie = function (c) {
+  let seqSmal = [];
+  let seqBig = [];
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i++].Year < movies[i].Year) {
+      let addOldMovie = movies[i];
+      seqSmal.push(addOldMovie);
+    } else {
+      let addOldMovie = movies[i];
+      seqBig.push(addOldMovie);
+    }
+  }
+  return seqSmal;
+};
+console.log(OlderMovie(1));
+
+console.log("-----------------");
+
+/* Ex.13
+    Write the function CountMovies that returns the number of movies into the array
+*/
+console.log("Ex.13");
+
+const CountMovies = function (c) {
+  return movies.length;
+};
+console.log("There are ", CountMovies(1), " movies");
+
+console.log("-----------------");
+/* Ex.14
+    Write the function OnlyTitles that creates an array with only the titles of the movies
+*/
+console.log("Ex.14");
+
+const OnlyTitles = function (c) {
+  let onlyTitles = [];
+  for (let i = 0; i < movies.length; i++) {
+    addTitle = movies[i].Title;
+    onlyTitles.push(addTitle);
+  }
+  return onlyTitles;
+};
+console.log("Here is an array containing the titles of the movies:");
+console.log(OnlyTitles(1));
+
+console.log("-----------------");
+/* Ex.15
+   Write the function OnlyThisMillennium that returns only the movies produced in this millennium
+*/
+console.log("Ex.15");
+
+const OnlyThisMillennium = function (c) {
+  let oTM = [];
+  let nOTM = [];
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Year >= 2000) {
+      let addMovie2 = movies[i];
+      oTM.push(addMovie2);
+    } else {
+      let addMovie2 = movies[i];
+      nOTM.push(addMovie2);
+    }
+  }
+  return oTM;
+};
+console.log("Here is an array containing the movies produced this millenium:");
+console.log(OnlyThisMillennium(1));
+
+console.log("-----------------");
+/* Ex.16 
+    Write the function GetMovieById that receives an ID and returns the movie with the given ID
+*/
+console.log("Ex.16");
+
+const GetMovieById = function (e) {
+  let correctID = [];
+  let wrongID = [];
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].imdbID === e) {
+      let addID = movies[i];
+      correctID.push(addID);
+    } else {
+      let addID = movies[i];
+      wrongID.push(addID);
+    }
+  }
+  return correctID;
+};
+console.log(GetMovieById("tt2395427"));
+
+console.log("----------------");
+/* Ex.17
+    Write the function SumYears that returns the sum of the years the movie has been produced
+*/
+
+/* Ex.18
+    Write the function SearchMovie that receives a string and returns all the movies with that string in the title
+*/
+
+/* Ex.19
+    Write the function SearchAndDivide that receives a string and returns an object with an array "match" with all the movies that contains the title and another array "nonMatch" with the other movies
+*/
+
+/* Ex.20
+   Write the function DeleteX that receives a number and returns an array without the element in that position
+*/
+
+// JS Advanced
+
+/* Ex.21
+  Create a function HalfTree that recives the height creates an "*" half tree with that height
+  Example:
+  HalfTree(3)
+  *
+  **
+  ***
+*/
+
+/* Ex.22 
+  Create a function Tree that receives the height and creates an "*" tree with that height
+  Example: 
+  Tree(3)
+    *  
+   *** 
+  *****
+*/
+
+/* Ex.23
+  Create a function IsItPrime that receives a number and return true if the number is a prime number
+*/
+
+/* Movies array is an example array, used for the exs. Don't change it :)  */

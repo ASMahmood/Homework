@@ -116,7 +116,14 @@ console.log("---------------------");
     Write the function SplitMe that receives a String and returns an array with every word in that string
     Ex. SplitMe("I love coding") => returns [ "I","Love","Coding"]
 */
+console.log("Ex.3");
 
+const SplitMe = function (s) {
+  return s.split(" ");
+};
+console.log(SplitMe("Hey there Stefano and/or other tutors"));
+
+console.log("---------------------");
 /* Ex.4
     Write the function DeleteOne that receives a string and a boolean. If the boolean is true, should return the string without the first letter, otherwise should remove the last one
 */

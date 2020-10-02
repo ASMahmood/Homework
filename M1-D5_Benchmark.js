@@ -190,30 +190,29 @@ console.log("---------------------");
 */
 console.log("Ex.7");
 
-let date = new Date();
-let d = date.getDay();
-
 const WhatDayIsIt = function (d) {
   switch (d) {
-    case 0:
-      return "Today is Monday";
     case 1:
-      return "Today is Tuesday";
+      return "Today is Monday";
     case 2:
-      return "Today is Wednesday";
+      return "Today is Tuesday";
     case 3:
-      return "Today is Thurday";
+      return "Today is Wednesday";
     case 4:
-      return "Today is Friday";
+      return "Today is Thurday";
     case 5:
-      return "Today is Saturday";
+      return "Today is Friday";
     case 6:
+      return "Today is Saturday";
+    case 7:
       return "Today is Sunday";
     default:
       break;
   }
 };
-console.log(WhatDayIsIt(1));
+let date = new Date();
+let d = date.getDay();
+console.log(WhatDayIsIt(d));
 
 console.log("---------------------");
 /* Ex.8

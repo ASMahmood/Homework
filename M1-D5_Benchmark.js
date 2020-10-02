@@ -131,7 +131,7 @@ console.log("Ex.4");
 
 const DeleteOne = function (s, b) {
   if (typeof s !== String || typeof b !== Boolean) {
-    return "Either parameter s' is not a string or parameter b is not a boolean";
+    return "Either parameter s is not a string or parameter b is not a boolean";
   } else if (b === true) {
     return s.slice(1);
   } else {
@@ -171,7 +171,20 @@ console.log("---------------------");
 /* Ex.6 
    Write the function IsThisAnEmail that receives a string and returns true if the string is a valid email.
 */
+console.log("Ex.6");
 
+const IsThisAnEmail = function (s) {
+  if (
+    (s = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
+console.log(IsThisAnEmail("abdul_mahmood@hotmail.co.uk"));
+
+console.log("---------------------");
 /* Ex.7
    Write the function WhatDayIsIt that should return the day of the week
 */

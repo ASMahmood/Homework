@@ -130,16 +130,13 @@ console.log("---------------------");
 console.log("Ex.4");
 
 const DeleteOne = function (s, b) {
-  if (typeof s !== String || typeof b !== Boolean) {
-    return "Either parameter s is not a string or parameter b is not a boolean";
-  } else if (b === true) {
+  if (b === true) {
     return s.slice(1);
   } else {
     return s.slice(0, -1);
   }
 };
 console.log(DeleteOne("Delete", true));
-console.log(typeof "Delete", typeof true);
 
 console.log("---------------------");
 /* Ex.5
@@ -147,6 +144,7 @@ console.log("---------------------");
    Ex.: OnlyLetters("I love 123 whatever")  => returns "I love whatever"
 */
 console.log("Ex.5");
+
 /* Attempt before google
 const OnlyLetters = function (s) {
   let sArray = s.split();
@@ -162,10 +160,29 @@ const OnlyLetters = function (s) {
 console.log(OnlyLetters("My OnlyLetters account costs £1000"));
 */
 
+/* Attempt with google
 const OnlyLetters = function (s) {
   return s.replace(/[0-9]/g, "");
 };
 console.log(OnlyLetters("My OnlyLetters account costs £1000"));
+*/
+
+// Second attempt without google
+const onlyLetters = function (s) {
+  let sArray = s.split("");
+  let letters = [];
+  let numbers = [];
+  for (let i = 0; i < sArray.length; i++) {
+    if (isNaN(parseInt(sArray[i])) === true) {
+      letters.push(sArray[i]);
+    } else {
+      numbers.push(sArray[i]);
+    }
+  }
+  return letters.join("");
+};
+
+console.log(onlyLetters("My OnlyLetters acount costs £1000"));
 
 console.log("---------------------");
 /* Ex.6 
@@ -204,7 +221,7 @@ const WhatDayIsIt = function (d) {
       return "Today is Friday";
     case 6:
       return "Today is Saturday";
-    case 7:
+    case 0:
       return "Today is Sunday";
     default:
       break;
@@ -231,7 +248,7 @@ const RollTheDice = function (r) {
   for (let i = 0; i < r; i++) {
     addDie = Dice(1);
     die.push(addDie);
-    total = die;
+    total = total + addDie;
   }
   let result = {
     Dice: `You rolled ${die}`,
@@ -250,12 +267,14 @@ console.log("Ex.9");
 
 const HowManyDays = function (d) {
   let today = new Date();
-  let day = today.getMilliseconds();
-  const date2 = new Date("02/10/2020");
-  let day2 = date2.getMilliseconds();
-  const diffDays = day - date2;
+  let todayMilli = today.getTime();
+  let startOfCourse = new Date(2020, 8, 28);
+  let startMilli = startOfCourse.getTime();
+  const diffDaysMilli = todayMilli - startMilli;
+  const diffDays = Math.floor(diffDaysMilli / (1000 * 60 * 60 * 24));
+  return diffDays;
 };
-console.log(HowManyDays(Date));
+console.log("It has been " + HowManyDays(Date) + " since I began Strive");
 
 console.log("---------------------");
 /* Ex.10
@@ -269,15 +288,20 @@ const IsTodayMyBDay = function (d) {
   let month = today.getMonth();
   let year = today.getFullYear();
   let todayDate = day + "/" + (month + 1) + "/" + year;
-  console.log(todayDate);
-  if (todayDate === "2/10/2020") {
+  console.log("Today's date is " + todayDate);
+  if (todayDate === "19/4/2020") {
     return true;
   } else {
     return false;
   }
 };
+
 console.log(IsTodayMyBDay(1));
+
+console.log("--------------------");
 // JS Arrays // Objs
+console.log("JS ARRAYS");
+console.log("---------------------");
 // NOTE: movies array is defined at the end of the file
 
 const movies = [
@@ -398,27 +422,37 @@ const movies = [
 /* Ex.11
    Write the function DeleteProp that receives an object and a string, and returns the object after deleting the property with that given name
 */
+console.log("Ex.11");
 
+let weekendScheduleIHave = {
+  Morning: "Breakfast and Twitch",
+  Noon: "Coding",
+  Evening: "Dinner and Games",
+  Night: "Sleep",
+};
+const deleteProp = function (o, s) {
+  delete o[s];
+  return o;
+};
+
+console.log(deleteProp(weekendScheduleIHave, "Night"));
+
+console.log("----------------");
 /* Ex.12 
     Write the function OlderMovie that finds the older movie in the array
 */
 console.log("Ex.12");
 
-const OlderMovie = function (c) {
-  let seqSmal = [];
-  let seqBig = [];
-  for (let i = 0; i < movies.length; i++) {
-    if (movies[i++].Year < movies[i].Year) {
-      let addOldMovie = movies[i];
-      seqSmal.push(addOldMovie);
-    } else {
-      let addOldMovie = movies[i];
-      seqBig.push(addOldMovie);
+const olderMovie = function (c) {
+  let oldest = parseInt(movies[0].Year);
+  for (let i = 1; i < movies.length; i++) {
+    if (parseInt(movies[i].Year) < oldest) {
+      oldest = movies[i];
     }
   }
-  return seqSmal;
+  return oldest;
 };
-console.log(OlderMovie(1));
+console.log(olderMovie(1));
 
 console.log("-----------------");
 
@@ -492,26 +526,105 @@ const GetMovieById = function (e) {
   }
   return correctID;
 };
-console.log(GetMovieById("tt2395427"));
+
+console.log("Here is the movie with the ID specified:");
+console.log(GetMovieById("tt0355702"));
 
 console.log("----------------");
 /* Ex.17
     Write the function SumYears that returns the sum of the years the movie has been produced
 */
+console.log("Ex.17");
 
+const sumYears = function (s) {
+  let sum = 0;
+  for (let i = 0; i < movies.length; i++) {
+    sum = sum + parseInt(movies[i].Year);
+  }
+  return sum;
+};
+
+console.log(
+  "The sum of the years in which these movies were produced is " + sumYears(1)
+);
+
+console.log("--------------");
 /* Ex.18
     Write the function SearchMovie that receives a string and returns all the movies with that string in the title
 */
+console.log("Ex.18");
 
+const searchMovie = function (s) {
+  let search = [];
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.indexOf(s) > -1) {
+      search.push(movies[i]);
+    }
+  }
+  return search;
+};
+
+console.log("Here is a list of titles containing the phrase specified:");
+console.log(searchMovie("Lord of the Rings"));
+
+console.log("----------------");
 /* Ex.19
     Write the function SearchAndDivide that receives a string and returns an object with an array "match" with all the movies that contains the title and another array "nonMatch" with the other movies
 */
+console.log("Ex.19");
 
+const searchAndDivide = function (s) {
+  let match = [];
+  let nonMatch = [];
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.indexOf(s) > -1) {
+      match.push(movies[i]);
+    } else {
+      nonMatch.push(movies[i]);
+    }
+  }
+  let result = {
+    Match: match,
+    Other: nonMatch,
+  };
+  return result;
+};
+
+console.log(searchAndDivide("Lord of the Rings"));
+
+console.log("----------------");
 /* Ex.20
    Write the function DeleteX that receives a number and returns an array without the element in that position
 */
+console.log("Ex.20");
+
+let nintendoGames = [
+  "Mario",
+  "Pokemon",
+  "Legend of Zelda",
+  "Animal Crossing",
+  "Donkey Kong",
+  "Kirby",
+  "Star Fox",
+  "Fire Emblem",
+];
+const deleteX = function (s) {
+  let newGameArray = [];
+  for (let i = 0; i < nintendoGames.length; i++) {
+    if (nintendoGames[i] !== nintendoGames[s]) {
+      newGameArray.push(nintendoGames[i]);
+    }
+  }
+  return newGameArray;
+};
+
+console.log(deleteX(3));
+
+console.log("----------------");
 
 // JS Advanced
+console.log("JS ADVANCED");
+console.log("---------------------");
 
 /* Ex.21
   Create a function HalfTree that recives the height creates an "*" half tree with that height
@@ -521,7 +634,18 @@ console.log("----------------");
   **
   ***
 */
+console.log("Ex.21");
 
+const halfTree = function (s) {
+  for (let i = 0; i <= s; i++) {
+    let level = "*";
+    console.log(level.repeat(i));
+  }
+};
+
+console.log(halfTree(5));
+
+console.log("---------------------");
 /* Ex.22 
   Create a function Tree that receives the height and creates an "*" tree with that height
   Example: 
@@ -530,9 +654,39 @@ console.log("----------------");
    *** 
   *****
 */
+console.log("Ex.22");
 
+const tree = function (s) {
+  let level = "*";
+  let space = " ";
+  for (let i = 0; i <= s; i++) {
+    console.log(
+      space.repeat((s - i) / 2) + level.repeat(++i) + space.repeat((s - i) / 2)
+    );
+  }
+};
+
+console.log(tree(5));
+
+console.log("-------------------");
 /* Ex.23
   Create a function IsItPrime that receives a number and return true if the number is a prime number
 */
+console.log("Ex.23");
 
+const isItPrime = function (s) {
+  if (
+    Number.isInteger(s / 1) === true &&
+    Number.isInteger(s / s) === true &&
+    Number.isInteger(s / !s) === false
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(isItPrime(4));
+
+console.log("-------------------");
 /* Movies array is an example array, used for the exs. Don't change it :)  */

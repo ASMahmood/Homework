@@ -30,8 +30,8 @@
   <body>
     <header>
       <div id="mainHeader">
-        <h1>Super Secret Smartphone Shop</h1>
-        <h4>Disclaimer: Does not exist</h4>
+        <h1 class="superTitle">Point Nemo Shop</h1>
+        <h4 class="subTitle">Disclaimer: Does not exist</h4>
       </div>
     </header>
     <br />
@@ -177,23 +177,18 @@
     </div>
     <br />
     <h3>Message Board</h3>
-    <table class="messageBoard">
-      <thead>
-        <tr>
-          <th>Username</th>
-          <th>Message</th>
-        </tr>
-      </thead>
-      <tbody id="boardBody">
-        <tr>
-          <td id="name">Test Name</td>
-          <td id="message">Test Message</td>
-        </tr>
-      </tbody>
-    </table>
-    <form id="newUser">
+    <br />
+    <form id="newMessage">
       <input id="user" type="text" name="username" placeholder="Username" />
-      <input id="mess" type="text" name="message" placeholder="Message" />
+      <input id="email" type="text" name="email" placeholder="Email Address" />
+      <br />
+      <textarea
+        name="messageBoard"
+        id="messB"
+        cols="50"
+        rows="10"
+        placeholder="Write your message here!"
+      ></textarea>
       <button id="send" onclick="mewMessage">Send Message</button>
     </form>
     <br />
@@ -205,18 +200,30 @@
     ></iframe>
     <footer id="mainFooter">
       <p>Super Secret Smartphone Shop</p>
-      <p>Point Nemo, South Pacific Ocean, -48.876667,-123.393333</p>
+      <p class="footerAddress">
+        Point Nemo, South Pacific Ocean, -48.876667,-123.393333
+      </p>
     </footer>
 
     <script>
-      let nameInput = document.querySelector("#user");
-      let messageInput = document.querySelector("#mess");
-      let name = document.querySelector("#name");
-      let message = document.querySelector("#message");
-      function newMessage() {
-        name.innerText = nameInput.value;
-        message.innerText = messageInput.value;
+      function altTitle() {
+        let newHeader = document.querySelector(".superTitle");
+        newHeader.innerText = "Super Secret Smartphone Shop";
+      }
+
+      function greyBackground() {
+        let body = document.querySelector("body");
+        body.style.backgroundColor = "#d3d3d3";
+      }
+
+      function altAddress() {
+        let newAddress = document.querySelector(".footerAddress");
+        newAddress.innerText = "Europa's Frozen Ocean";
       }
     </script>
+
+    <button onclick="altTitle()">Change Title</button>
+    <button onclick="greyBackground()">Change Background</button>
+    <button onclick="altAddress()">Change Address</button>
   </body>
 </html>

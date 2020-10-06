@@ -180,6 +180,22 @@
       width="640"
       height="480"
     ></iframe>
+    <h2 id="listTitle">Todo List</h2>
+    <ul id="firstList">
+      <li><p>1st</p></li>
+      <li>2nd</li>
+      <li>3rd</li>
+    </ul>
+    <ul id="secondList">
+      <li>1st</li>
+      <li>2nd</li>
+      <li>3rd</li>
+    </ul>
+    <div>
+      <p>This text is just for the exercise</p>
+    </div>
+    <input id="ex4text" type="text" placeholder="New Content Here" />
+    <input type="button" onclick="changePContent()" value="SEND" />
     <footer id="mainFooter">
       <p>Super Secret Smartphone Shop</p>
       <p class="footerAddress">
@@ -254,7 +270,11 @@
                 </div>
         Write a function to change the text of only the p which are child of a div (execute the function by assigning it to a button's click event)
         */
-      const changePContent = function () {};
+      const changePContent = function () {
+        let newContent = document.querySelector("#ex4text").value;
+        let targetText = document.querySelector("div p");
+        targetText.innerText = newContent;
+      };
       /* EXERCISE 5
             Write a function to change the list title (you can use previous day's textarea as input or create a new text input field to grab the content)
         */

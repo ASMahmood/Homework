@@ -34,7 +34,7 @@
             <td>
               <img
                 src="https://images.samsung.com/is/image/samsung/uk-galaxy-s20-plus-5g-g986-bts-edition-sm-g986bzpdeua-frontbpurple-thumb-259913553"
-                width="300"
+                width="200"
               />
             </td>
             <td>Samsung Galaxy S20</td>
@@ -59,7 +59,7 @@
             <td>
               <img
                 src="https://images-na.ssl-images-amazon.com/images/I/71%2BRIkc-12L._AC_SX385_.jpg"
-                width="300"
+                width="200"
               />
             </td>
             <td>OnePlus 8 Pro</td>
@@ -83,7 +83,7 @@
             <td>
               <img
                 src="https://images-na.ssl-images-amazon.com/images/I/81HSzsIkJdL._AC_SL1500_.jpg"
-                width="300"
+                width="200"
               />
             </td>
             <td>iPhone 11 Pro</td>
@@ -108,7 +108,7 @@
             <td>
               <img
                 src="https://images-na.ssl-images-amazon.com/images/I/91sscTRuOzL._AC_SX466_.jpg"
-                width="300"
+                width="200"
               />
             </td>
             <td>Oppo Find X2 Pro</td>
@@ -134,7 +134,7 @@
             <td>
               <img
                 src="https://media.ao.com/en-GB/Productimages/Images/rvLarge/sm-n986bzngeua_samsung_mobile_01_l.png"
-                width="300"
+                width="200"
               />
             </td>
             <td>Samsung Galaxy Note 20 Ultra</td>
@@ -199,12 +199,11 @@
     <input type="button" onclick="changePContent()" value="SEND" />
     <br />
     <input id="ex5text" type="text" placeholder="Change List Title?" />
-    <input
-      id="ex5button"
-      type="button"
-      value="CHANGE"
-      onclick="changeListTitle()"
-    />
+    <input type="button" value="CHANGE" onclick="changeListTitle()" />
+    <br />
+    <input id="ex6text" type="text" placeholder="Add to second list" />
+    <input type="button" value="ADD" onclick="addToTheSecond()" />
+    <br />
     <footer id="mainFooter">
       <p>Super Secret Smartphone Shop</p>
       <p class="footerAddress">
@@ -295,7 +294,13 @@
       /* EXERCISE 6
              Write a function to add a new item ONLY to the second list (create an input field + add button)
         */
-      const addToTheSecond = function (content) {};
+      const addToTheSecond = function (content) {
+        let newItem = document.createElement("li");
+        let newItemInput = document.querySelector("#ex6text").value;
+        let secondList = document.querySelector("#secondList");
+        newItem.innerText = newItemInput;
+        secondList.appendChild(newItem);
+      };
       /* EXERCISE 7
             Write a function to make the first UL disappear (button)
         */

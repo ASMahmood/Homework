@@ -206,6 +206,8 @@
     <br />
     <input type="button" value="DELETE TOP LIST" onclick="firstUlDisappear()" />
     <br />
+    <input type="button" value="MAKE LIST GREEN" onclick="paintItGreen()" />
+    <br />
     <footer id="mainFooter">
       <p>Super Secret Smartphone Shop</p>
       <p class="footerAddress">
@@ -314,7 +316,12 @@
       /* EXERCISE 8
             Write a function to make the background of every UL green (button)
         */
-      const paintItGreen = function () {};
+      const paintItGreen = function () {
+        let allUl = document.querySelectorAll("ul");
+        for (let i = 0; i < allUl.length; i++) {
+          allUl[i].style.backgroundColor = "green";
+        }
+      };
 
       /* EXERCISE 9
             Add a "magnifier function" to the table.

@@ -181,6 +181,7 @@
       height="480"
     ></iframe>
     <h2 id="listTitle">Todo List</h2>
+
     <ul id="firstList">
       <li><p>1st</p></li>
       <li>2nd</li>
@@ -194,8 +195,16 @@
     <div>
       <p>This text is just for the exercise</p>
     </div>
-    <input id="ex4text" type="text" placeholder="New Content Here" />
+    <input id="ex4text" type="text" placeholder="Change text here" />
     <input type="button" onclick="changePContent()" value="SEND" />
+    <br />
+    <input id="ex5text" type="text" placeholder="Change List Title?" />
+    <input
+      id="ex5button"
+      type="button"
+      value="CHANGE"
+      onclick="changeListTitle()"
+    />
     <footer id="mainFooter">
       <p>Super Secret Smartphone Shop</p>
       <p class="footerAddress">
@@ -278,7 +287,11 @@
       /* EXERCISE 5
             Write a function to change the list title (you can use previous day's textarea as input or create a new text input field to grab the content)
         */
-      const changeListTitle = function (content) {};
+      const changeListTitle = function (content) {
+        let newListTitle = document.querySelector("#ex5text").value;
+        let listTitle = document.querySelector("#listTitle");
+        listTitle.innerText = newListTitle;
+      };
       /* EXERCISE 6
              Write a function to add a new item ONLY to the second list (create an input field + add button)
         */

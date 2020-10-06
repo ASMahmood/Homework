@@ -12,7 +12,9 @@
         >
           Point Nemo Shop
         </h1>
-        <h4 class="subTitle">Disclaimer: Does not exist</h4>
+        <h4 class="subTitle" onclick="makeItClickable()">
+          Disclaimer: Does not exist
+        </h4>
       </div>
     </header>
     <br />
@@ -156,6 +158,7 @@
         </tbody>
       </table>
     </div>
+    <input type="button" value="Toggle Images" onclick="toggleShowImages()" />
     <br />
     <h3>Message Board</h3>
     <div id="messageBoardBody"></div>
@@ -328,18 +331,56 @@
             When the user mouse goes on a table cell (not the image one) the font size must increase.
             HINT use mouseenter / mouseleave events
         */
-      const makeThemMagnifiable = function () {};
+
       /* EXERCISE 10
             Add a button to toggle all the product images (toggle => if visible, hide, if not visible, show)
         */
-      const toggleShowImages = function () {};
+      const toggleShowImages = function () {
+        let tableImages = document.querySelectorAll(".table img");
+        if (tableImages[0].style.visibility == "visible") {
+          for (let i = 0; i < tableImages.length; i++) {
+            tableImages[i].style.visibility = "hidden";
+          }
+        } else {
+          for (let i = 0; i < tableImages.length; i++) {
+            tableImages[i].style.visibility = "visible";
+          }
+        }
+      };
 
       //##### EXTRA
 
       /* EXERCISE 11
             Make the heading of the page change color radomly every time the user clicks on it
             */
-      const makeItClickable = function () {};
+      const makeItClickable = function () {
+        let randomHexchain = [];
+        let hexVals = [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+        ];
+        for (let i = 0; i < 6; i++) {
+          randomHexchain.push(hexVals[Math.floor(Math.random() * 16)]);
+        }
+        let randomHex = randomHexchain.join("");
+        console.log(randomHex);
+        let h1 = document.querySelector("h1");
+        h1.style.color = "#" + randomHex;
+      };
 
       /*EXERCISE 12
           Refactor your HTML code with HTML5 semantic tags such as header, section, footer, etc

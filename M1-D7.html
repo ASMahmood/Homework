@@ -6,7 +6,12 @@
   <body>
     <header>
       <div id="mainHeader">
-        <h1 onmouseover="addClassToTitle()">Point Nemo Shop</h1>
+        <h1
+          onmouseover="addClassToTitle()"
+          onmouseleave="removeClassFromTitle()"
+        >
+          Point Nemo Shop
+        </h1>
         <h4 class="subTitle">Disclaimer: Does not exist</h4>
       </div>
     </header>
@@ -226,7 +231,11 @@
       /* EXERCISE 3b
             Write a function to remove "red-color" class from previous h1 (execute the function when the mouse leaves the title).
         */
-      const removeClassFromTitle = function () {};
+      const removeClassFromTitle = function () {
+        let h1 = document.querySelector("h1");
+        h1.classList.remove("redClass");
+        h1.style.color = null;
+      };
       /* EXERCISE 4
             Add the following html snippet to your page:
                 <h2 id="listTitle">Todo List</h2>

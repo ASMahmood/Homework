@@ -204,6 +204,8 @@
     <input id="ex6text" type="text" placeholder="Add to second list" />
     <input type="button" value="ADD" onclick="addToTheSecond()" />
     <br />
+    <input type="button" value="DELETE TOP LIST" onclick="firstUlDisappear()" />
+    <br />
     <footer id="mainFooter">
       <p>Super Secret Smartphone Shop</p>
       <p class="footerAddress">
@@ -304,7 +306,11 @@
       /* EXERCISE 7
             Write a function to make the first UL disappear (button)
         */
-      const firstUlDisappear = function () {};
+      const firstUlDisappear = function () {
+        let firstUl = document.querySelector("#firstList");
+        let body = document.querySelector("body");
+        body.removeChild(firstUl);
+      };
       /* EXERCISE 8
             Write a function to make the background of every UL green (button)
         */

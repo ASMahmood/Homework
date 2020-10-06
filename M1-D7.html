@@ -1,0 +1,279 @@
+<!-- Starting from D6's exercise, use your Smartphone Shop Website and implement the following exercises-->
+<html>
+  <head></head>
+  <body>
+    <header>
+      <div id="mainHeader">
+        <h1 class="superTitle">Point Nemo Shop</h1>
+        <h4 class="subTitle">Disclaimer: Does not exist</h4>
+      </div>
+    </header>
+    <br />
+    <h3>Our top 5 bestsellers!</h3>
+    <div class="table" style="width: 60%; padding: auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Model</th>
+            <th>Company</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Amazon Links</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img
+                src="https://images.samsung.com/is/image/samsung/uk-galaxy-s20-plus-5g-g986-bts-edition-sm-g986bzpdeua-frontbpurple-thumb-259913553"
+                width="300"
+              />
+            </td>
+            <td>Samsung Galaxy S20</td>
+            <td>Samsung</td>
+            <td>
+              The Samsung Galaxy S20 is the best smartphone available right now.
+              That covers both the S20 and the larger Galaxy S20 Plus, as
+              there's very little difference between the two handsets aside from
+              size and a couple of specs. They take the very best of what's on
+              the smartphone market and put it together in a compelling package
+              that we loved testing.
+            </td>
+            <td>£668</td>
+            <td>
+              <a
+                href="https://www.amazon.co.uk/Samsung-Galaxy-Mobile-Phone-Smartphone-Cosmic-Grey/dp/B084GQ3KYM/"
+                >Click Me</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://images-na.ssl-images-amazon.com/images/I/71%2BRIkc-12L._AC_SX385_.jpg"
+                width="300"
+              />
+            </td>
+            <td>OnePlus 8 Pro</td>
+            <td>OnePlus</td>
+            <td>
+              The OnePlus 8 Pro blew us away when we reviewed it, and the
+              company is tussling with Samsung and Apple on our best phones list
+              for that very reason. While the OnePlus 8 is also an option, it's
+              missing many of the features we like about the Pro, which we
+              outline below.
+            </td>
+            <td>£899</td>
+            <td>
+              <a
+                href="https://www.amazon.co.uk/OnePlus-SIM-Free-Smartphone-Triple-Glacial/dp/B07XYK31SQ/"
+                >Click Me</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://images-na.ssl-images-amazon.com/images/I/81HSzsIkJdL._AC_SL1500_.jpg"
+                width="300"
+              />
+            </td>
+            <td>iPhone 11 Pro</td>
+            <td>Apple</td>
+            <td>
+              Want something a bit more from your iPhone? You're in luck with
+              the iPhone 11 Pro and 11 Pro Max, as they feature improved spec
+              including a more high-end rear camera that can compete with the
+              very best. It'll cost more than the iPhone 11 (which is probably
+              the best phone for the average iPhone user), but if you're after
+              the very best iPhone, the Pro range is what you want.
+            </td>
+            <td>£1064</td>
+            <td>
+              <a
+                href="https://www.amazon.co.uk/Apple-iPhone-11-Pro-256GB/dp/B07XL8VHHL/"
+                >Click Me</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://images-na.ssl-images-amazon.com/images/I/91sscTRuOzL._AC_SX466_.jpg"
+                width="300"
+              />
+            </td>
+            <td>Oppo Find X2 Pro</td>
+            <td>Oppo</td>
+            <td>
+              This is the highest we've ever had Oppo rank on our best phone
+              list, and that's because the Oppo Find X2 Pro is the most
+              accomplished phone from the manufacturer so far. You'll find a top
+              display, processor, camera and much more on the Oppo Find X2 Pro
+              that justifies its high price tag. The battery life isn't
+              fantastic, but otherwise this is one of the very best phones on
+              sale right now.
+            </td>
+            <td>£999</td>
+            <td>
+              <a
+                href="https://www.amazon.co.uk/OPPO-Find-X2-Pro-Snapdragon/dp/B08963XYV4/"
+                >Click Me</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://media.ao.com/en-GB/Productimages/Images/rvLarge/sm-n986bzngeua_samsung_mobile_01_l.png"
+                width="300"
+              />
+            </td>
+            <td>Samsung Galaxy Note 20 Ultra</td>
+            <td>Samsung</td>
+            <td>
+              Samsung's latest super-premium smartphone is the Samsung Galaxy
+              Note 20 Ultra, with advanced features, a great-looking screen, and
+              special features for the S Pen stylus which comes included in the
+              phone, that give you added versatile ways to use your device.
+            </td>
+            <td>£999</td>
+            <td>
+              <a
+                href="https://www.amazon.co.uk/Samsung-Galaxy-Note20-Android-Version/dp/B08C5DBSB7"
+                >Click Me</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br />
+    <h3>Message Board</h3>
+    <div id="messageBoardBody"></div>
+    <br />
+    <form id="newMessage">
+      <input id="user" type="text" name="username" placeholder="Username" />
+      <input id="email" type="text" name="email" placeholder="Email Address" />
+      <br />
+      <textarea
+        name="messageBoard"
+        id="messB"
+        cols="50"
+        rows="10"
+        placeholder="Write your message here!"
+      ></textarea>
+      <button id="send" onclick="mewMessage">Send Message</button>
+    </form>
+    <br />
+    <h3>Map to our store!</h3>
+    <iframe
+      src="https://www.google.com/maps/d/embed?mid=15OUBq14tjeKhfd_3av5kVPllt7k"
+      width="640"
+      height="480"
+    ></iframe>
+    <footer id="mainFooter">
+      <p>Super Secret Smartphone Shop</p>
+      <p class="footerAddress">
+        Point Nemo, South Pacific Ocean, -48.876667,-123.393333
+      </p>
+      <button onclick="altTitle()">Change Title</button>
+      <button onclick="greyBackground()">Change Background</button>
+      <button onclick="altAddress()">Change Address</button>
+    </footer>
+
+    <script>
+      function altTitle() {
+        let newHeader = document.querySelector(".superTitle");
+        newHeader.innerText = "Super Secret Smartphone Shop";
+      }
+
+      function greyBackground() {
+        let body = document.querySelector("body");
+        body.style.backgroundColor = "#d3d3d3";
+      }
+
+      function altAddress() {
+        let newAddress = document.querySelector(".footerAddress");
+        newAddress.innerText = "Europa's Frozen Ocean";
+      }
+
+      /*EXERCISE 1 
+     Create a new welcome alert message when the page successfully loads
+    */
+      window.onload = function () {
+        alert("Welcome to the webpage!");
+      };
+      /* EXERCISE 2
+      Write a function to change the Title of the page in something else (execute the function in browser console)
+  */
+      const changeTitle = function (newTitle) {};
+      /* EXERCISE 3a
+      Write a function to add a class to the page's h1 title in "red-color" (execute the function when title is hovered by mouse).
+  */
+      const addClassToTitle = function () {};
+      /* EXERCISE 3b
+      Write a function to remove "red-color" class from previous h1 (execute the function when the mouse leaves the title).
+  */
+      const removeClassFromTitle = function () {};
+      /* EXERCISE 4
+      Add the following html snippet to your page:
+          <h2 id="listTitle">Todo List</h2>
+          <ul id="firstList">
+              <li><p>1st</p></li>
+              <li>2nd</li>
+              <li>3rd</li>
+          </ul>
+          <ul id="secondList">
+              <li>1st</li>
+              <li>2nd</li>
+              <li>3rd</li>
+          </ul>
+          <div>
+              <p>This text is just for the exercise</p>
+          </div>
+  Write a function to change the text of only the p which are child of a div (execute the function by assigning it to a button's click event)
+  */
+      const changePContent = function () {};
+      /* EXERCISE 5
+      Write a function to change the list title (you can use previous day's textarea as input or create a new text input field to grab the content)
+  */
+      const changeListTitle = function (content) {};
+      /* EXERCISE 6
+       Write a function to add a new item ONLY to the second list (create an input field + add button)
+  */
+      const addToTheSecond = function (content) {};
+      /* EXERCISE 7
+      Write a function to make the first UL disappear (button)
+  */
+      const firstUlDisappear = function () {};
+      /* EXERCISE 8
+      Write a function to make the background of every UL green (button)
+  */
+      const paintItGreen = function () {};
+
+      /* EXERCISE 9
+      Add a "magnifier function" to the table.
+      When the user mouse goes on a table cell (not the image one) the font size must increase.
+      HINT use mouseenter / mouseleave events
+  */
+      const makeThemMagnifiable = function () {};
+      /* EXERCISE 10
+      Add a button to toggle all the product images (toggle => if visible, hide, if not visible, show)
+  */
+      const toggleShowImages = function () {};
+
+      //##### EXTRA
+
+      /* EXERCISE 11
+      Make the heading of the page change color radomly every time the user clicks on it
+      */
+      const makeItClickable = function () {};
+
+      /*EXERCISE 12
+    Refactor your HTML code with HTML5 semantic tags such as header, section, footer, etc
+*/
+    </script>
+  </body>
+</html>

@@ -1,6 +1,8 @@
 <!-- Starting from D6's exercise, use your Smartphone Shop Website and implement the following exercises-->
 <html>
-  <head></head>
+  <head>
+    <title>Point Nemo Shop</title>
+  </head>
   <body>
     <header>
       <div id="mainHeader">
@@ -208,7 +210,10 @@
       /* EXERCISE 2
       Write a function to change the Title of the page in something else (execute the function in browser console)
   */
-      const changeTitle = function (newTitle) {};
+      const changeTitle = function (newTitle) {
+        let title = document.querySelector("title");
+        title.innerText = newTitle;
+      };
       /* EXERCISE 3a
       Write a function to add a class to the page's h1 title in "red-color" (execute the function when title is hovered by mouse).
   */

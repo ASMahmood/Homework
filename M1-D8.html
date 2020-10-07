@@ -33,7 +33,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       }
 
       input[type="button"] {
-        width: 400px;
+        width: 300px;
         height: 40px;
       }
     </style>
@@ -126,7 +126,14 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       /* EXERCISE 8: 
                Create a method "getTasksAsArray" which returns (and print to the console) an array containing the tasks as string
             */
-
+      const getTasksAsArray = function (S) {
+        let tasks = document.querySelectorAll("li");
+        let tasksStrings = [];
+        for (let i = 0; i < tasks.length; i++) {
+          tasksStrings.push(tasks[i].innerText);
+        }
+        console.log(tasksStrings);
+      };
       /* EXERCISE 9:
                Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an 
                onchange event listener ad applies it as background to every list item

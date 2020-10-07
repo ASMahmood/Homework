@@ -29,7 +29,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       }
 
       #myTaskList li {
-        border: 2px, solid, black;
+        border: 4px, solid, black;
       }
 
       input[type="button"] {
@@ -54,13 +54,23 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         Create a button "Remove Last Task" to trigger the method "removeLast"
         -->
 
-    <input type="button" id="removeLastTask" onclick="removeLast()" />
+    <input
+      type="button"
+      id="removeLastTask"
+      value="Remove Last Task"
+      onclick="removeLast()"
+    />
 
     <!-- EXERCISE 4
         Create a button "Remove First Task" to trigger the method "removeFirst"
         -->
 
-    <input type="button" id="removeFirstTask" onclick="removeFirst()" />
+    <input
+      type="button"
+      id="removeFirstTask"
+      value="Remove First Task"
+      onclick="removeFirst()"
+    />
 
     <ul id="myTaskList"></ul>
 
@@ -85,7 +95,15 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                 - Use the document.createElement to create the new List Item
                 - Append the child to the UL
             */
+      let taskList = document.querySelector("#myTaskList");
 
+      const addNewTask = function () {
+        let taskValue = document.querySelector("#newTask").value;
+        let newTask = document.createElement("li");
+        newTask.innerText = taskValue;
+        console.log(newTask);
+        taskList.appendChild(newTask);
+      };
       /* EXERCISE 6: 
                 Create a method "removeLast" which removes the last item from the task list
             */

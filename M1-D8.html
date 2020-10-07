@@ -117,7 +117,12 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       /* EXERCISE 7: 
                 Create a method "removeFirst" which removes the first item from the task list
             */
-
+      const removeFirst = function () {
+        let tasks = document.querySelectorAll("li");
+        console.log(tasks);
+        let firstTask = tasks[0];
+        taskList.removeChild(firstTask);
+      };
       /* EXERCISE 8: 
                Create a method "getTasksAsArray" which returns (and print to the console) an array containing the tasks as string
             */

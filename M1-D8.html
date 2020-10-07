@@ -28,7 +28,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         background-color: azure;
       }
 
-      #myTaskList li {
+      li {
         border: 4px, solid, black;
       }
 
@@ -108,6 +108,12 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                 Create a method "removeLast" which removes the last item from the task list
             */
 
+      const removeLast = function () {
+        let tasks = document.querySelectorAll("li");
+        console.log(tasks);
+        let lastTask = tasks[tasks.length - 1];
+        taskList.removeChild(lastTask);
+      };
       /* EXERCISE 7: 
                 Create a method "removeFirst" which removes the first item from the task list
             */

@@ -95,12 +95,12 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
 
     <script>
       /* EXERCISE 5:
-                Add a new task to the list.
-                Suggestion:
-                - Use document.getElementById to get the UL item and the input text
-                - Use the document.createElement to create the new List Item
-                - Append the child to the UL
-            */
+                 Add a new task to the list.
+                 Suggestion:
+                 - Use document.getElementById to get the UL item and the input text
+                 - Use the document.createElement to create the new List Item
+                 - Append the child to the UL
+             */
       let taskList = document.querySelector("#myTaskList");
 
       const addNewTask = function () {
@@ -111,8 +111,8 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         taskList.appendChild(newTask);
       };
       /* EXERCISE 6:
-                Create a method "removeLast" which removes the last item from the task list
-            */
+                 Create a method "removeLast" which removes the last item from the task list
+             */
 
       const removeLast = function () {
         let tasks = document.querySelectorAll("li");
@@ -121,8 +121,8 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         taskList.removeChild(lastTask);
       };
       /* EXERCISE 7:
-                Create a method "removeFirst" which removes the first item from the task list
-            */
+                 Create a method "removeFirst" which removes the first item from the task list
+             */
       const removeFirst = function () {
         let tasks = document.querySelectorAll("li");
         console.log(tasks);
@@ -130,20 +130,21 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         taskList.removeChild(firstTask);
       };
       /* EXERCISE 8:
-               Create a method "getTasksAsArray" which returns (and print to the console) an array containing the tasks as string
-            */
+                Create a method "getTasksAsArray" which returns (and print to the console) an array containing the tasks as string
+             */
       const getTasksAsArray = function (S) {
         let tasks = document.querySelectorAll("li");
         let tasksStrings = [];
         for (let i = 0; i < tasks.length; i++) {
           tasksStrings.push(tasks[i].innerText);
         }
+        tasksStrings.join("");
         console.log(tasksStrings);
       };
       /* EXERCISE 9:
-               Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an
-               onchange event listener ad applies it as background to every list item
-            */
+                Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an
+                onchange event listener ad applies it as background to every list item
+             */
 
       const changeTaskBackgroundColor = function () {
         let newColor = document.querySelector("#colorPicker").value;
@@ -157,64 +158,111 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       /* EXTRA */
 
       /* EXERCISE 10:
-               Create a method "bubbleSort()" which sort the task list alphabetically using the bubble sort algorithm
+                Create a method "bubbleSort()" which sort the task list alphabetically using the bubble sort algorithm
 
-               Use your spare time to beautify your task list with CSS.
-               Suggestion:
-               - Break the code into many function for semplicity
-               - Reuse the functions previously created
-            */
+                Use your spare time to beautify your task list with CSS.
+                Suggestion:
+                - Break the code into many function for semplicity
+                - Reuse the functions previously created
+             */
 
       const bubbleSort = function () {
         let tasks = document.querySelectorAll("li");
         let alphabet = [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "A",
           "a",
+          "B",
           "b",
+          "C",
           "c",
+          "D",
           "d",
+          "E",
           "e",
+          "F",
           "f",
+          "G",
           "g",
+          "H",
           "h",
+          "I",
           "i",
+          "J",
           "j",
+          "K",
           "k",
+          "L",
           "l",
+          "M",
           "m",
+          "N",
           "n",
+          "O",
           "o",
+          "P",
           "p",
+          "Q",
           "q",
+          "R",
           "r",
+          "S",
           "s",
+          "T",
           "t",
+          "U",
           "u",
+          "V",
           "v",
+          "W",
           "w",
+          "X",
           "x",
+          "Y",
           "y",
+          "Z",
           "z",
         ];
-        let orderedList = [];
+
         let firstChar = [];
+        let orderedList = [];
         for (let i = 0; i < tasks.length; i++) {
           firstChar.push(tasks[i].innerText.slice(0, 1));
           console.log(alphabet.indexOf(firstChar[i]));
+          orderedList[i] = tasks[i].innerText;
+          console.log(orderedList);
         }
+
         for (let i = 0; i < tasks.length; i++) {
           for (let j = 0; j < tasks.length - i - 1; j++) {
             if (
-              alphabet.indexOf(firstChar[j]) <
+              alphabet.indexOf(firstChar[j]) >
               alphabet.indexOf(firstChar[j + 1])
             ) {
-              orderedList.push(tasks[j].innerText);
-            } else {
-              orderedList.push(tasks[j + 1].innerText);
+              let temp = orderedList[j];
+              orderedList[j] = orderedList[j + 1];
+              orderedList[j + 1] = temp;
+              let tempFirst = firstChar[j];
+              firstChar[j] = firstChar[j + 1];
+              firstChar[j + 1] = tempFirst;
             }
           }
+          console.log(firstChar);
+          console.log(orderedList);
         }
-        console.log(firstChar);
-        console.log(orderedList);
+        for (let i = 0; i < tasks.length; i++) {
+          tasks[i].innerText = orderedList[i];
+        }
+        console.log(tasks);
       };
     </script>
   </body>

@@ -91,10 +91,10 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
 
     <hr />
 
-    <input type="button" value="Sort" onclick="bubblesort()" />
+    <input type="button" value="Sort" onclick="bubbleSort()" />
 
     <script>
-      /* EXERCISE 5: 
+      /* EXERCISE 5:
                 Add a new task to the list.
                 Suggestion:
                 - Use document.getElementById to get the UL item and the input text
@@ -110,7 +110,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         console.log(newTask);
         taskList.appendChild(newTask);
       };
-      /* EXERCISE 6: 
+      /* EXERCISE 6:
                 Create a method "removeLast" which removes the last item from the task list
             */
 
@@ -120,7 +120,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         let lastTask = tasks[tasks.length - 1];
         taskList.removeChild(lastTask);
       };
-      /* EXERCISE 7: 
+      /* EXERCISE 7:
                 Create a method "removeFirst" which removes the first item from the task list
             */
       const removeFirst = function () {
@@ -129,7 +129,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         let firstTask = tasks[0];
         taskList.removeChild(firstTask);
       };
-      /* EXERCISE 8: 
+      /* EXERCISE 8:
                Create a method "getTasksAsArray" which returns (and print to the console) an array containing the tasks as string
             */
       const getTasksAsArray = function (S) {
@@ -141,9 +141,10 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         console.log(tasksStrings);
       };
       /* EXERCISE 9:
-               Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an 
+               Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an
                onchange event listener ad applies it as background to every list item
             */
+
       const changeTaskBackgroundColor = function () {
         let newColor = document.querySelector("#colorPicker").value;
         console.log(newColor);
@@ -152,16 +153,69 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
           tasks[i].style.backgroundColor = newColor;
         }
       };
+
       /* EXTRA */
 
-      /* EXERCISE 10: 
+      /* EXERCISE 10:
                Create a method "bubbleSort()" which sort the task list alphabetically using the bubble sort algorithm
-            
+
                Use your spare time to beautify your task list with CSS.
                Suggestion:
-               - Break the code into many function for semplicity 
+               - Break the code into many function for semplicity
                - Reuse the functions previously created
             */
+
+      const bubbleSort = function () {
+        let tasks = document.querySelectorAll("li");
+        let alphabet = [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l",
+          "m",
+          "n",
+          "o",
+          "p",
+          "q",
+          "r",
+          "s",
+          "t",
+          "u",
+          "v",
+          "w",
+          "x",
+          "y",
+          "z",
+        ];
+        let orderedList = [];
+        let firstChar = [];
+        for (let i = 0; i < tasks.length; i++) {
+          firstChar.push(tasks[i].innerText.slice(0, 1));
+          console.log(alphabet.indexOf(firstChar[i]));
+        }
+        for (let i = 0; i < tasks.length; i++) {
+          for (let j = 0; j < tasks.length - i - 1; j++) {
+            if (
+              alphabet.indexOf(firstChar[j]) <
+              alphabet.indexOf(firstChar[j + 1])
+            ) {
+              orderedList.push(tasks[j].innerText);
+            } else {
+              orderedList.push(tasks[j + 1].innerText);
+            }
+          }
+        }
+        console.log(firstChar);
+        console.log(orderedList);
+      };
     </script>
   </body>
 </html>

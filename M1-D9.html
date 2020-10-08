@@ -9,6 +9,108 @@
         - Create a USER BOARD with random 24 numbers that highlights as the main board does
         - Let the user choose HOW MANY user boards he's willing to play with and create them.
     -->
-  <head></head>
-  <body></body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bingo Board</title>
+    <style>
+      #bingoBoard {
+        background-color: slategray;
+        border-radius: 10px;
+      }
+
+      #userBoards {
+        background-color: slateblue;
+        border-radius: 10px;
+      }
+
+      .standardCell {
+        display: inline-block;
+        width: 9%;
+        color: oldlace;
+        text-align: center;
+      }
+
+      .userCell {
+        display: inline-block;
+        width: 20%;
+        color: oldlace;
+        text-align: center;
+      }
+
+      input[type="button"] {
+        color: blueviolet;
+      }
+
+      .highlighted {
+        background-color: coral;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>BINGOOOOO</h1>
+    <div id="bingoBoard"></div>
+    <input type="button" id="randomizer" value="Random Number" />
+    <h2>User Boards</h2>
+    <input type="button" id="spawnUser" value="Spawn User Board" />
+    <div id="userBoards"></div>
+    <script>
+      let numberMemory = [];
+      let bingoBoard = document.querySelector("#bingoBoard");
+      let bingoCell = document.createElement("div");
+      let bingoCellNumber = document.createElement("h3");
+
+      const randomNumber = function () {
+        return Math.floor(Math.random() * 76);
+      };
+
+      window.onload = function () {
+        for (let i = 0; i < 76; i++) {
+          bingoCell = document.createElement("div");
+          bingoCell.className = "standardCell";
+          bingoCellNumber = document.createElement("h3");
+          bingoCellNumber.innerText = i + 1;
+          bingoCell.appendChild(bingoCellNumber);
+          bingoBoard.appendChild(bingoCell);
+        }
+
+        let spawnUser = document.querySelector("#spawnUser");
+        spawnUser.onclick = function () {
+          let allUserBoards = document.querySelector("#userBoards");
+          for (let i = 0; i < 24; i++) {
+            allUserBoards = document.querySelector("#userBoards");
+            let userBoardCell = document.createElement("div");
+            userBoardCell.className = "userCell";
+            let userBoardCellNumber = document.createElement("h4");
+
+            userBoardCellNumber.innerText = randomNumber() + 1;
+            userBoardCell.appendChild(userBoardCellNumber);
+            allUserBoards.appendChild(userBoardCell);
+          }
+
+          let hr = document.createElement("hr");
+          allUserBoards.appendChild(hr);
+        };
+
+        let randomizer = document.querySelector("#randomizer");
+        randomizer.onclick = function (event) {
+          let bingoCellNumber = document.querySelectorAll(".standardCell h3");
+          let userCellNumber = document.querySelectorAll(".userCell");
+          let highlighted = document.querySelector(".highlighted");
+          let number = randomNumber();
+          if (numberMemory.includes(number) !== true) {
+            bingoCellNumber[number - 1].classList.add("highlighted");
+            numberMemory.push(number);
+            console.log(numberMemory);
+            if (userCellNumber.includes(number) === true) {
+              userCellNumber.indexOf(number - 1).classList.add("highlighted");
+            }
+          }
+          console.log(userCellNumber[0]);
+        };
+      };
+    </script>
+  </body>
 </html>
